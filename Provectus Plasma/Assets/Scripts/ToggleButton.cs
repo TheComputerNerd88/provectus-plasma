@@ -89,7 +89,7 @@ public class ToggleButton : MonoBehaviour
 		}
 	}
 
-	public IEnumerator Toggle()
+	public void Toggle()
 	{
 		currentState = !currentState;
 
@@ -102,7 +102,7 @@ public class ToggleButton : MonoBehaviour
 			buttonImage.CrossFadeColor(offColour, delay, false, false);
 		}
 
-		yield return new WaitForSeconds(delay);
+		//yield return new WaitForSeconds(delay);
 
 		CheckEvents();
 	}
