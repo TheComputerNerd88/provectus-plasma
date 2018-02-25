@@ -334,6 +334,27 @@ MonoBehaviour:
   startOn: 0
   size: 60
   delay: 0.5
+  toggleOn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1925546471}
+        m_MethodName: PartSwitch
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  toggleOff:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &102905619
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +662,16 @@ MonoBehaviour:
   startOn: 0
   size: 60
   delay: 0.5
+  toggleOn:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  toggleOff:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &803271676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1064,6 +1095,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1046d1bc7579de4baeed97ea97e474f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parts:
+  - {fileID: 102905619}
+  - {fileID: 1880045726}
+  - {fileID: 1524730408}
+  - {fileID: 2045616129}
+  - {fileID: 948861558}
 --- !u!4 &1925546472
 Transform:
   m_ObjectHideFlags: 0

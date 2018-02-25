@@ -1,6 +1,7 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ToggleButton : MonoBehaviour
@@ -26,11 +27,19 @@ public class ToggleButton : MonoBehaviour
     bool currentState;
     Button button;
     Image buttonImage;
-    #endregion
 
-    #region Methods
-    // Use this for initialization
-    void Start()
+	[Space]
+
+	[Header("Toggled Events")]
+	[SerializeField]
+	UnityEvent toggleOn;
+	[SerializeField]
+	UnityEvent toggleOff;
+	#endregion
+
+	#region Methods
+	// Use this for initialization
+	void Start()
     {
         buttonImage = gameObject.GetComponent<Image>();
 
@@ -41,23 +50,7 @@ public class ToggleButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    public void Toggle()
-    {
-        currentState = !currentState;
-
-        if (currentState)
-        {
-            //TweenColours(onColour);
-            buttonImage.CrossFadeColor(onColour, delay, false, false);
-        }
-        else
-        {
-            //TweenColours(offColour);
-            buttonImage.CrossFadeColor(offColour, delay, false, false);
-        }
+		
     }
 
     public void Initialise()
@@ -79,22 +72,50 @@ public class ToggleButton : MonoBehaviour
             buttonImage.CrossFadeColor(offColour, 0f, false, false);
     }
 
-    public void ResetValues(ResetType resetType)
-    {
-        if (resetType == ResetType.Colours)
-        {
-            offColour = new Color32(127, 127, 255, 255);
-            onColour = new Color32(255, 192, 76, 255);
-        }
-        else if (resetType == ResetType.Size)
-        {
-            size = 60f;
-        }
-        else if (resetType == ResetType.Delay)
-        {
-            delay = .5f;
-        }
-    }
+	public void ResetValues(ResetType resetType)
+	{
+		if (resetType == ResetType.Colours)
+		{
+			offColour = new Color32(127, 127, 255, 255);
+			onColour = new Color32(255, 192, 76, 255);
+		}
+		else if (resetType == ResetType.Size)
+		{
+			size = 60f;
+		}
+		else if (resetType == ResetType.Delay)
+		{
+			delay = .5f;
+		}
+	}
+
+	public IEnumerator Toggle()
+	{
+		currentState = !currentState;
+
+		if (currentState)
+		{
+			buttonImage.CrossFadeColor(onColour, delay, false, false);
+		}
+		else
+		{
+			buttonImage.CrossFadeColor(offColour, delay, false, false);
+		}
+
+		yield return new WaitForSeconds(delay);
+
+		CheckEvents();
+	}
+	
+	void CheckEvents()
+	{
+		if (currentState)
+			toggleOn.Invoke();
+		else
+		{
+			toggleOff.Invoke();
+		}
+	}
     #endregion
 }
 
