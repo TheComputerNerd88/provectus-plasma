@@ -1,10 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PartSwitcher : MonoBehaviour 
 {
-	#region Variables and References
+    #region Variables and References
+    GameObject[] parts;
 	#endregion
 	
 	#region Methods
@@ -19,5 +20,16 @@ public class PartSwitcher : MonoBehaviour
 	{
 		
 	}
+
+    public void PartSwitch(int partNumber)
+    {
+        foreach (GameObject part in parts)
+        {
+            if ((part == parts[partNumber - 1]))
+                part.SetActive(true);
+            else
+				part.SetActive(false);
+        }
+    }
 	#endregion
 }
