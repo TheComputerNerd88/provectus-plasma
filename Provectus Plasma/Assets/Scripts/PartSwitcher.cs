@@ -13,7 +13,7 @@ public class PartSwitcher : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		
+		PartSwitch(1);
 	}
 	
 	// Update is called once per frame
