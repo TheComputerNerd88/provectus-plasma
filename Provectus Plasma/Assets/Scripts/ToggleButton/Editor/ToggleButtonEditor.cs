@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -28,7 +28,9 @@ public class ToggleButtonReset : Editor
 
         ToggleButton toggleButton = (ToggleButton)target;
 
-        GUILayout.BeginHorizontal();
+		EditorGUILayout.LabelField("Editor Controls", EditorStyles.boldLabel);
+
+		EditorGUILayout.BeginHorizontal();
 
         if (GUILayout.Button("Initialise"))
         {
@@ -49,7 +51,7 @@ public class ToggleButtonReset : Editor
         {
             toggleButton.ResetValues(ResetType.Delay);
         }
-        GUILayout.EndHorizontal();
+        EditorGUILayout.EndHorizontal();
 
         toggleButton.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, toggleButton.size);
         toggleButton.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, toggleButton.size);

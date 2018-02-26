@@ -5,8 +5,7 @@ using UnityEngine;
 public class PartSwitcher : MonoBehaviour 
 {
     #region Variables and References
-	[SerializeField]
-    GameObject[] parts;
+    public GameObject[] parts;
 	#endregion
 	
 	#region Methods
