@@ -1,6 +1,7 @@
 theme: jekyll-theme-cayman
 title: Provectus Plasma
 show_downloads: true
+show_me_text: true
 
 github:
   zip_url: http://www.google.com.au
