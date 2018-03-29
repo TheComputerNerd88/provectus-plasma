@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +18,11 @@ public class ANDGate : MonoBehaviour
 	void Update () 
 	{
 		
+	}
+
+	public void CheckAND(ToggleButton thisObject)
+	{
+
 	}
 	#endregion
 }
